@@ -110,46 +110,6 @@ release/
 
 ---
 
-## 📂 目录结构
-
-```
-SZGame/
-├── electron/                  # Electron 主进程代码
-│   ├── main.ts                # 主进程入口，窗口创建/IPC/托盘
-│   ├── preload.ts             # 预加载脚本，暴露 electronAPI
-│   ├── db.ts                  # sql.js 数据库初始化与迁移
-│   ├── launcher.ts            # 游戏启动器（exe/bat/URL/提权）
-│   ├── cover-manager.ts       # 本地封面管理
-│   ├── remote-cover.ts        # Steam 远程封面抓取
-│   └── updater.ts             # 自动更新检测与下载
-├── src/                       # React 渲染进程代码
-│   ├── App.tsx                # 应用根组件，全局状态与路由
-│   ├── main.tsx               # 渲染进程入口
-│   ├── components/            # UI 组件
-│   │   ├── Sidebar.tsx        # 左侧导航栏（分组列表 + 搜索）
-│   │   ├── GameGrid.tsx       # 游戏卡片网格
-│   │   ├── GameDrawer.tsx     # 详情抽屉
-│   │   ├── GameForm.tsx       # 添加/编辑游戏表单
-│   │   ├── GroupManager.tsx   # 分组管理页面
-│   │   ├── Settings.tsx       # 设置页面
-│   │   ├── UpdateDialog.tsx   # 更新提示弹窗
-│   │   └── ...
-│   ├── hooks/                 # 自定义 Hooks
-│   ├── types/                 # TypeScript 类型定义
-│   └── styles/                # 全局样式
-├── images/                    # 应用图标与默认图片资源
-├──                        # 界面截图（README 引用）
-├── build/                     # 安装包自定义 NSIS 脚本
-├── design/                    # 原型设计稿
-├── openspec/                  # OpenSpec 变更与规范
-├── scripts/                   # 运维脚本
-├── package.json
-├── vite.config.ts
-└── tsconfig.json
-```
-
----
-
 ## 📜 License
 
 [MIT License](LICENSE) © 2026 博学浮生
