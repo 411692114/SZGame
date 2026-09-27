@@ -1,0 +1,12 @@
+# IDE / Editor
+.trae/
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build / Dependencies
+node_modules/

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- TDK -->
+  <title>SZGame — 本地游戏与程序管理盒子</title>
+  <meta name="description" content="SZGame 是一款面向 Windows 的本地游戏与程序集中管理工具。将散落在磁盘各处的 exe、bat、网址链接统一收纳到美观的卡片界面中，支持分组、搜索、封面管理、拖拽排序、提权启动和自动更新。">
+  <meta name="keywords" content="SZGame,游戏管理,程序管理,启动器,Windows,游戏盒子,本地工具,Electron">
+  <meta name="author" content="博学浮生">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://szgame.sinszm.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SZGame — 本地游戏与程序管理盒子">
+  <meta property="og:description" content="把散落的游戏和程序，收进一个盒子里。本地 · 轻量 · 自由。">
+  <meta property="og:url" content="https://szgame.sinszm.com/">
+  <meta property="og:image" content="01首页.png">
+  <meta property="og:site_name" content="SZGame">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SZGame — 本地游戏与程序管理盒子">
+  <meta name="twitter:description" content="把散落的游戏和程序，收进一个盒子里。本地 · 轻量 · 自由。">
+  <meta name="twitter:image" content="01首页.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "SZGame",
+    "alternateName": "SZGame — 游戏与程序管理盒子",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Windows",
+    "description": "一款面向 Windows 的本地游戏与程序集中管理工具。将散落在磁盘各处的 exe、bat、网址链接统一收纳到美观的卡片界面中，支持分组、搜索、封面管理、拖拽排序、提权启动和自动更新。",
+    "url": "https://szgame.sinszm.com/",
+    "downloadUrl": "SZGame Setup 1.0.5.exe",
+    "version": "1.0.5",
+    "image": "01首页.png",
+    "license": "https://opensource.org/licenses/MIT",
+    "author": {
+      "@type": "Person",
+      "name": "博学浮生"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "博学浮生"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CNY"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ============ 固定导航栏 ============ -->
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container navbar-inner">
+      <a href="#" class="navbar-brand" aria-label="SZGame 首页">
+        <img src="logo.png" class="logo-icon" alt="SZGame logo">
+        <span>SZGame</span>
+      </a>
+      <div class="navbar-links">
+        <a href="https://gitee.com/sinszer/SZGame.git" target="_blank" rel="noopener" aria-label="在 Gitee 上查看源码">Gitee ↗</a>
+        <a href="#download" class="btn btn-primary btn-sm">下载 ↓</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ Hero 区 ============ -->
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <h1 class="hero-slogan">
+          把散落的游戏和程序，<br>
+          收进<span class="accent">一个盒子里</span>。
+        </h1>
+        <p class="hero-subtitle">本地 · 轻量 · 自由</p>
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">立即下载</a>
+          <a href="#features" class="btn btn-secondary">查看功能</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-preview" data-animate>
+          <img src="01首页.png" alt="SZGame 首页预览">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ 功能特性 ============ -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title" data-animate>核心功能</h2>
+      <p class="section-subtitle" data-animate>一个应用，管理你所有的游戏和程序启动入口</p>
+
+      <div class="features-grid">
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🎮</div>
+          <h3 class="feature-name">游戏卡片网格</h3>
+          <p class="feature-desc">以封面卡片形式展示，支持 exe、bat、URL 三种启动类型，一眼找到你想要的。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">📦</div>
+          <h3 class="feature-name">分组管理</h3>
+          <p class="feature-desc">创建、重命名、删除分组，拖拽调整顺序，跨分组归类你的游戏和程序。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🔍</div>
+          <h3 class="feature-name">全局搜索</h3>
+          <p class="feature-desc">顶部搜索框，300ms 防抖模糊匹配，跨分组聚合展示，输入即找到。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🖼️</div>
+          <h3 class="feature-name">封面管理</h3>
+          <p class="feature-desc">本地上传图片或从 Steam 远程抓取封面，点击放大预览，让卡片更精美。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-name">快速启动</h3>
+          <p class="feature-desc">一键启动，支持命令行参数和管理员权限（提权）启动，按你想要的方式运行。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🔀</div>
+          <h3 class="feature-name">拖拽排序</h3>
+          <p class="feature-desc">卡片在分组内自由拖拽，排序自动持久化，调整你喜欢的排列方式。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🛠️</div>
+          <h3 class="feature-name">系统托盘</h3>
+          <p class="feature-desc">最小化/关闭可选隐藏到托盘，托盘图标支持恢复窗口和退出，省心不打扰。</p>
+        </div>
+
+        <div class="feature-card" data-animate>
+          <div class="feature-icon">🔄</div>
+          <h3 class="feature-name">自动更新</h3>
+          <p class="feature-desc">从 Gitee Releases 检测新版本，支持手动确认或强制静默更新，保持最新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 产品截图（轮播） ============ -->
+  <section class="screenshots">
+    <div class="container">
+      <h2 class="section-title" data-animate>所见即所得</h2>
+      <p class="section-subtitle" data-animate>真实界面，简约大气，专注体验</p>
+
+      <div class="carousel" data-carousel data-animate>
+        <!-- 4 张轮播图 -->
+        <div class="carousel-slide active">
+          <img src="01首页.png" alt="SZGame 首页 — 游戏卡片网格">
+        </div>
+        <div class="carousel-slide">
+          <img src="02详情.png" alt="SZGame 详情抽屉 — 封面大图与启动选项">
+        </div>
+        <div class="carousel-slide">
+          <img src="03收藏夹.png" alt="SZGame 收藏夹 — 分组管理">
+        </div>
+        <div class="carousel-slide">
+          <img src="04设置.png" alt="SZGame 设置 — 更新与窗口行为">
+        </div>
+
+        <!-- 左右箭头 -->
+        <button class="carousel-prev" aria-label="上一张">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="carousel-next" aria-label="下一张">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <!-- 底部指示点 -->
+        <div class="carousel-dots" role="tablist">
+          <button class="carousel-dot active" data-index="0" aria-label="第 1 张"></button>
+          <button class="carousel-dot" data-index="1" aria-label="第 2 张"></button>
+          <button class="carousel-dot" data-index="2" aria-label="第 3 张"></button>
+          <button class="carousel-dot" data-index="3" aria-label="第 4 张"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 技术栈 ============ -->
+  <section class="tech-stack">
+    <div class="container">
+      <h2 class="section-title" data-animate>技术栈</h2>
+      <p class="section-subtitle" data-animate>基于现代 Web 技术构建，稳定可靠</p>
+
+      <div class="tech-tags" data-animate>
+        <span class="tech-tag">Electron 32</span>
+        <span class="tech-tag">React 18</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">Vite 5</span>
+        <span class="tech-tag">sql.js</span>
+        <span class="tech-tag">@dnd-kit</span>
+        <span class="tech-tag">electron-builder</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 下载区 ============ -->
+  <section id="download" class="download">
+    <div class="container">
+      <h2 class="section-title" data-animate>立即开始</h2>
+      <p class="section-subtitle" data-animate>免费 · 本地 · 单机运行，无需联网</p>
+
+      <div class="download-card" data-animate>
+        <div class="download-version" id="version-info">Windows · 84.0 MB</div>
+        <a href="SZGame Setup 1.0.5.exe" id="download-btn"
+           class="btn btn-primary download-btn"
+           download="SZGame Setup 1.0.5.exe">
+          下载 SZGame v1.0.5 · 84.0 MB
+        </a>
+        <p class="download-note">支持 Windows · MIT License · 单文件便携</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Footer ============ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>SZGame</strong> © 2026 博学浮生 · MIT License
+      </div>
+      <div class="footer-links">
+        <a href="https://gitee.com/sinszer/SZGame.git" target="_blank" rel="noopener">Gitee 源码 ↗</a>
+        <span>szgame.sinszm.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="js/main.js"></script>
+</body>
+</html>
