@@ -44,10 +44,10 @@
      动态版本号与文件大小
      ---------------------------------------------------------- */
   function initDownloadInfo() {
-    const FILENAME = 'SZGame Setup 1.0.5.exe';
+    const FILENAME = 'SZGame Setup 1.0.6.exe';
     const FALLBACK_SIZE = '~84.0 MB';
     const versionMatch = FILENAME.match(/(\d+\.\d+\.\d+)/);
-    const version = versionMatch ? versionMatch[1] : '1.0.5';
+    const version = versionMatch ? versionMatch[1] : '1.0.6';
     const downloadUrl = encodeURI(FILENAME);
 
     const downloadBtn = document.getElementById('download-btn');
