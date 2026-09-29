@@ -41,46 +41,71 @@
   }
 
   /* ----------------------------------------------------------
-     动态版本号与文件大小
+     动态版本号与文件大小 — 从 VERSION 文件读取
      ---------------------------------------------------------- */
   function initDownloadInfo() {
-    const FILENAME = 'SZGame Setup 1.0.6.exe';
-    const FALLBACK_SIZE = '~84.0 MB';
-    const versionMatch = FILENAME.match(/(\d+\.\d+\.\d+)/);
-    const version = versionMatch ? versionMatch[1] : '1.0.6';
-    const downloadUrl = encodeURI(FILENAME);
+    const DEFAULT_VERSION = '1.0.8';
+    const DEFAULT_FILENAME = 'SZGame Setup 1.0.8.exe';
+    const FALLBACK_SIZE = '~89.6 MB';
+    const VERSION_RE = /^\d+\.\d+\.\d+$/;
 
     const downloadBtn = document.getElementById('download-btn');
-    if (downloadBtn) {
-      downloadBtn.setAttribute('href', downloadUrl);
-      downloadBtn.setAttribute('download', FILENAME);
-    }
     const versionInfo = document.getElementById('version-info');
 
-    function updateUI(ver, size) {
+    function makeFilename(ver) { return 'SZGame Setup ' + ver + '.exe'; }
+
+    function updateUI(ver, filename, size) {
+      const url = encodeURI(filename);
       const label = '下载 SZGame v' + ver + ' \u00b7 ' + size;
-      if (downloadBtn) downloadBtn.textContent = label;
+      if (downloadBtn) {
+        downloadBtn.setAttribute('href', url);
+        downloadBtn.setAttribute('download', filename);
+        downloadBtn.textContent = label;
+      }
       if (versionInfo) versionInfo.textContent = 'Windows · ' + size;
       // 同步 JSON-LD
       const ldEl = document.querySelector('script[type="application/ld+json"]');
       if (ldEl) {
         try {
           const ld = JSON.parse(ldEl.textContent);
-          ld.version = ver; ld.downloadUrl = downloadUrl;
+          ld.version = ver;
+          ld.downloadUrl = url;
           ldEl.textContent = JSON.stringify(ld);
         } catch (e) { /* 忽略 */ }
       }
     }
 
-    fetch(downloadUrl, { method: 'HEAD' })
+    function probeAndUpdate(ver, filename) {
+      fetch(filename, { method: 'HEAD' })
+        .then(function (res) {
+          const length = res.headers.get('Content-Length');
+          if (length) {
+            const mb = (parseInt(length, 10) / 1024 / 1024).toFixed(1);
+            updateUI(ver, filename, mb + ' MB');
+          } else {
+            updateUI(ver, filename, FALLBACK_SIZE);
+          }
+        })
+        .catch(function () {
+          updateUI(ver, filename, FALLBACK_SIZE);
+        });
+    }
+
+    function useDefault() {
+      probeAndUpdate(DEFAULT_VERSION, DEFAULT_FILENAME);
+    }
+
+    fetch('VERSION', { cache: 'no-cache' })
       .then(function (res) {
-        const length = res.headers.get('Content-Length');
-        if (length) {
-          const mb = (parseInt(length, 10) / 1024 / 1024).toFixed(1);
-          updateUI(version, mb + ' MB');
-        } else { updateUI(version, FALLBACK_SIZE); }
+        if (!res.ok) throw new Error('VERSION HTTP ' + res.status);
+        return res.text();
       })
-      .catch(function () { updateUI(version, FALLBACK_SIZE); });
+      .then(function (text) {
+        const ver = text.trim();
+        if (!VERSION_RE.test(ver)) throw new Error('VERSION format invalid: ' + ver);
+        probeAndUpdate(ver, makeFilename(ver));
+      })
+      .catch(function () { useDefault(); });
   }
 
   /* ----------------------------------------------------------
