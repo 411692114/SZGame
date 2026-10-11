@@ -229,15 +229,34 @@
       <h2 class="section-title" data-animate>立即开始</h2>
       <p class="section-subtitle" data-animate>免费 · 本地 · 单机运行，无需联网</p>
 
-      <div class="download-card" data-animate>
-        <div class="download-version" id="version-info">Windows · 89.6 MB</div>
-        <a href="SZGame Setup 1.0.8.exe" id="download-btn"
-           class="btn btn-primary download-btn"
-           download="SZGame Setup 1.0.8.exe">
-          下载 SZGame v1.0.8 · 89.6 MB
-        </a>
-        <p class="download-note">支持 Windows · MIT License · 单文件便携</p>
+      <div class="download-grid">
+        <!-- 渠道一：EXE 直接下载 -->
+        <div class="download-card" id="download-card" data-animate>
+          <div class="download-channel-title">直接下载</div>
+          <div class="download-version" id="version-info">Windows · 89.6 MB</div>
+          <a href="SZGame Setup 1.0.8.exe" id="download-btn"
+             class="btn btn-primary download-btn"
+             download="SZGame Setup 1.0.8.exe">
+            下载 SZGame v1.0.8 · 89.6 MB
+          </a>
+          <p class="download-card-sub">便携版 · 无需安装</p>
+        </div>
+
+        <!-- 渠道二：微软商店 -->
+        <div class="download-card" data-animate>
+          <div class="download-channel-title">微软商店</div>
+          <div class="download-version">在线安装 · 自动更新</div>
+          <a href="https://apps.microsoft.com/detail/9P69FQ3P1WLT"
+             target="_blank" rel="noopener" class="store-badge-link">
+            <img src="https://get.microsoft.com/images/zh-cn%20dark.svg"
+                 alt="从微软商店获取 SZGame"
+                 class="store-badge-img">
+          </a>
+          <p class="download-card-sub">商店版 · 自动更新</p>
+        </div>
       </div>
+
+      <p class="download-note">支持 Windows · MIT License · 两种安装渠道</p>
     </div>
   </section>
 
